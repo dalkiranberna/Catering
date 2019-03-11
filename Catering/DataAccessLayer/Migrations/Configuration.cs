@@ -14,21 +14,18 @@ namespace DataAccessLayer.Migrations
 
         protected override void Seed(DataAccessLayer.CateringContext context)
         {
-            /*if (!context.Users.Any(x => x.Email == "adminc@c.com"))
-		  {
-			  IdentityRole role = new IdentityRole();
-			  role.Name = "Chef";
-			  context.Roles.Add(role);
-			  context.SaveChanges();
+            //  This method will be called after migrating to the latest version.
 
-			  UserStore<Member> chefStore = new UserStore<Member>(context);
-			  UserManager<Member> chefManager = new UserManager<Member>(chefStore);
-
-			  Member chef = context.Users.Where(x => x.Email == "adminc@c.com").FirstOrDefault();
-			  chefManager.AddToRole(chef.Id, "Chef");
-
-			  context.SaveChanges();
-		  }*/
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
         }
     }
 }

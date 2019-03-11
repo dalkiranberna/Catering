@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Catering.Models;
+using Entity.ViewModels;
 
 namespace Catering.Controllers
 {

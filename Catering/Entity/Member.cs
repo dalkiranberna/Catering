@@ -1,8 +1,10 @@
 ﻿using Entity.Abstract;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,13 +25,14 @@ namespace Entity
 
     public class Member : IdentityUser
     {
-        public string ImageURL { get; set; }
         public int Age { get; set; }
+        public string ImageURL { get; set; }
         public bool HasPhoto { get; set; } //fotoğrafı yoksa default bi şey getirsin diye
         public int Experience { get; set; }
         public string WhoAmI { get; set; }
         public int Like { get; set; }
         public int Dislike { get; set; }
+        public string Password { get; set; }
         public virtual ShoppingCart ShoppingCart { get; set; }
         public virtual List<Certificate> Certificates { get; set; }
         public virtual List<Product> Products { get; set; } //kişinin dükkanındaki ürünler
@@ -41,6 +44,14 @@ namespace Entity
         {
             Like = 0;
             Dislike = 0;
+        }
+
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Member> manager)
+        {
+            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
+            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+            // Add custom user claims here
+            return userIdentity;
         }
     }
 
