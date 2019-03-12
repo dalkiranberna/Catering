@@ -1,0 +1,107 @@
+﻿@using Entity.ViewModels
+@model LoginViewModel
+
+@{
+	Layout = null;
+}
+
+<style>
+	body {
+		background-color: #ad9966 !important;
+	}
+
+	.submit {
+		background-color: #ad9966 !important;
+	}
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<!-- Font Icon -->
+	<link href="~/Content/Register/fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet" />
+	<!-- Main css -->
+	<link rel="stylesheet" href="/Content/Register/css/style.css">
+	<link href="~/Content/Home/css/tab.css" rel="stylesheet" />
+	<!-- JS -->
+	<script src="/Content/Register/js/jquery.min.js"></script>
+	<script src="/Content/Register/js/main.js"></script>
+</head>
+
+
+<body>
+	<div class="main">
+
+		<div class="container">
+			<div class="booking-content">
+
+				<div class="booking-image">
+					<img class="booking-img" src="/Content/Register/images/form-img.jpg" alt="Booking Image">
+				</div>
+
+				<div class="booking-form">
+
+					@using (Html.BeginForm("Login", "Member", FormMethod.Post, new { @id = "booking-form-login" }))
+					{
+						@Html.AntiForgeryToken()
+
+						if (ViewBag.Errors != null && ViewBag.Errors.Count() != 0)
+						{
+							<div class="alert alert-danger">
+								@foreach (string item in ViewBag.Errors) //hata listesi
+								{
+									<p>@item</p>
+								}
+							</div>
+						}
+
+						<br /><br /><br /><br />
+						<h2> Giriş Yap </h2>
+						<div class="form-group form-input">
+							@Html.TextBoxFor(x => x.Email, new { @name = "name", @required = "required" })
+							@Html.Label("Kullanıcı Adı", new { @class = "form-label", @for = "name" })
+						</div>
+						<div class="form-group form-input">
+							@*Member'da Password yok ve burada Member isimli model olduğu için LoginViewModel'i model olarak kullanamıyorum. Hata veriyor!*@
+							@Html.TextBoxFor(x => x.Password, new { @type = "password", @name = "sifre", @required = "required" })
+							@Html.Label("Şifre", new { @class = "form-label", @for = "sifre" })
+						</div>
+						<div class="help-block text-right">
+							@Html.ActionLink("Şifremi Unuttum", "ForgatPassword", "Account")
+						</div>
+						<br /><br />
+
+						<div class="form-submit">
+							<button type="button" class="submit giris" name="giris">Gönder</button>
+						</div>
+					}
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<script>
+		$(".giris").click(function () {
+			var gidecekVeri = $("#booking-form-login").serialize();
+			$.ajax({
+				url: "/Member/Login",
+				method: "POST",
+				data: gidecekVeri,
+				success: function (result) {
+					if (result.success)
+						window.location = "/Home/Index";
+					else
+						alert("Giriş başarısız. Tekrar deneyin.");
+				}
+			});
+		});
+	</script>
+</body>

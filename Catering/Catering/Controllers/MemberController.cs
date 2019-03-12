@@ -12,77 +12,75 @@ using System.Web.Mvc;
 
 namespace Catering.Controllers
 {
-    public class MemberController : Controller
-    {
-            UnitOfWork _uw = new UnitOfWork();
+	public class MemberController : Controller
+	{
+		UnitOfWork _uw = new UnitOfWork();
 
-            public ActionResult Index(int? food, int? del)
-            {
+		public ActionResult Index(int? food, int? del)
+		{
 
-                return View();
-            }
+			return View();
+		}
 
-            [HttpGet]
-            public ActionResult Register()
-            {
-                return View();
-            }
+		[HttpGet]
+		public ActionResult Register()
+		{
+			return View();
+		}
 
-            [HttpPost]
-            [ValidateAntiForgeryToken]
-            public ActionResult Register(Member member, string pass, HttpPostedFileBase img)
-            {
-                UserStore<Member> store = new UserStore<Member>(UnitOfWork.Create());
-                UserManager<Member> manager = new UserManager<Member>(store);
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult _Register(Member member, string pass, HttpPostedFileBase img)
+		{
+			UserStore<Member> store = new UserStore<Member>(UnitOfWork.Create());
+			UserManager<Member> manager = new UserManager<Member>(store);
 
-                var result = manager.Create(member, pass); //burdan önce id yoktu, ama burada id var
+			var result = manager.Create(member, pass);
 
-                if (result.Succeeded) //kayıt başarılıysa
-                {
-                    //Uploads/Members/
-                    //resim varsa kişinin id si ile kaydet
-                    //anasayfaya yönlendir
+			if (result.Succeeded) //kayıt başarılıysa
+			{
 
-                    if (img != null)
-                    {
-                        string path = Server.MapPath("/Uploads/Member/");
-                        img.SaveAs(path + member.Id + ".jpg");
-                        member.HasPhoto = true;
+				if (img != null)
+				{
+					string path = Server.MapPath("/Uploads/Member/");
+					img.SaveAs(path + member.Id + ".jpg");
+					member.HasPhoto = true;
 
-                        manager.Update(member); //manager update/create işlemlerini kendisi yapar
-                    }
+					manager.Update(member);
+				}
 
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    //View içine hataları gönder
-                    //Hataları uygun bir html ile göster
-
-                    ViewBag.Errors = result.Errors;
-                }
-
-                return View();
-            }
+				return RedirectToAction("Index", "Home");
+			}
+			else
+			{
+				ViewBag.Errors = result.Errors;
+			}
+			return View();
+		}
 
 
-            public JsonResult Login(LoginViewModel info)
-            {
-                ApplicationSignInManager signInManager = HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+		public ActionResult LoginPage()
+		{
+			return View();
+		}
 
-                //2. Giriş yapmayı dene (result döner)
-                SignInStatus result = signInManager.PasswordSignIn(info.Email, info.Password, true, false); //MVC username ile giriş yaptırıyor
+		public JsonResult Login(LoginViewModel info)
+		{
+			ApplicationSignInManager signInManager = HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
 
-                //3. Sonucu döndür
-                //sonuç döndürürken enum'ı switch-case ile yazmak daha mantıklı. SignInStatus bir enum :
-                switch (result)
-                {
-                    case SignInStatus.Success:
-                        return Json(new { success = true });
-                    case SignInStatus.Failure:
-                        return Json(new { success = false });
-                }
-                return Json(new { success = false });
-            }
-    }
+			//2. Giriş yapmayı dene (result döner)
+			SignInStatus result = signInManager.PasswordSignIn(info.Email, info.Password, true, false); //MVC username ile giriş yaptırıyor
+
+			//3. Sonucu döndür
+			//sonuç döndürürken enum'ı switch-case ile yazmak daha mantıklı. SignInStatus bir enum :
+			switch (result)
+			{
+				case SignInStatus.Success:
+					return Json(new { success = true });
+				case SignInStatus.Failure:
+					return Json(new { success = false });
+			}
+			return Json(new { success = false });
+		}
+	}
 }

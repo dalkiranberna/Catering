@@ -10,7 +10,7 @@ namespace Entity.ViewModels
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "Kullanıcı Adı")]
         [EmailAddress]
         public string Email { get; set; }
 

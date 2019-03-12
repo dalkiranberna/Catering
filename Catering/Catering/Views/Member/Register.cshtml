@@ -18,206 +18,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Font Icon -->
-    <link href="~/Content/Register/fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet" />
-    <!-- Main css -->
-    <link rel="stylesheet" href="/Content/Register/css/style.css">
-    <link href="~/Content/Home/css/tab.css" rel="stylesheet" />
+	<!-- Font Icon -->
+	<link href="~/Content/Register/fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet" />
+	<!-- Main css -->
+	<link rel="stylesheet" href="/Content/Register/css/style.css">
+	<link href="~/Content/Home/css/tab.css" rel="stylesheet" />
+	<!-- JS -->
+	<script src="/Content/Register/js/jquery.min.js"></script>
+	<script src="/Content/Register/js/main.js"></script>
 </head>
 <body>
-
-
-
-    <!-- JS -->
-
-    <script src="/Content/Register/js/jquery.min.js"></script>
-    <script src="/Content/Register/js/main.js"></script>
-
-    <div class="tab">
+    @*<div class="tab">
         <button class="tablinks" onclick="openCity(event, 'London')">Kayıt Ol</button>
         <button class="tablinks" onclick="openCity(event, 'Paris')">Giriş Yap</button>
     </div>
 
-    <div id="London" class="tabcontent">
-        <div class="main">
-
-            <div class="container">
-                <div class="booking-content">
-
-                    <div class="booking-image">
-                        <img class="booking-img" src="/Content/Register/images/form-img.jpg" alt="Booking Image">
-                    </div>
-
-                    <div class="booking-form">
-
-                        @using (Html.BeginForm("Register", "Member", FormMethod.Post, new { @id = "booking-form" }))
-                        {
-                            @*
-                            @Html.AntiForgeryToken()
-
-                            if (ViewBag.Errors != null && ViewBag.Errors.Count() != 0)
-                            {
-                                <div class="alert alert-danger">
-                                    @foreach (string item in ViewBag.Errors) //hata listesi
-                                    {
-                                        <p>@item</p>
-                                    }
-                                </div>
-                            }
-                                *@
-
-                            <br /><br />
-                            <h2> Kayıt Ol </h2>
-                            <div class="form-group form-input">
-                                @Html.TextBoxFor(x => x.UserName, new { @name = "name", @required = "required" })
-                                @Html.Label("Kullanıcı Adı", new { @class = "form-label", @for = "name" })
-                            </div>
-                            <div class="form-group form-input">
-                                @Html.TextBoxFor(x => x.Email, new { @name = "mail", @required = "required", @type = "email" })
-                                @Html.Label("E-posta", new { @class = "form-label", @for = "mail" })
-                            </div>
-                            <div class="form-group form-input">
-                                @Html.TextBoxFor(x => x.PhoneNumber, new { @name = "phone", @required = "required", @type = "number" })
-                                @Html.Label("Telefon", new { @class = "form-label", @for = "phone" })
-                            </div>
-                            <div class="form-group form-input">
-                                @Html.TextBox("pass", null, new { @type = "password", @name = "sifre", @required = "required" })
-                                @Html.Label("Şifre", new { @class = "form-label", @for = "sifre" })
-                            </div>
-                            /*<div class="form-group form-input">
-                                @Html.TextBox("passR", null, new { @type = "password", @name = "sifre", @required = "required" })
-                                @Html.Label("Şifre (Tekrar)", new { @class = "form-label", @for = "sifre" })
-                            </div>
-                            <div class="form-group">
-                                <div class="select-list">
-                                    @* @Html.DropDownList("food", (IEnumerable<SelectListItem>)ViewBag.Langs, new { @name = "person", @required = "required" })*@
-                                    <select name="person" id="food" required>
-                                        <option value="">Person</option>
-                                        <option value="chef">Chef</option>
-                                        <option value="member">Member</option>
-                                    </select>
-                                </div>
-                            </div>*/
-                            @*<div class="form-radio">
-                                    <label class="label-radio"> Select Your Dining Space</label>
-                                    <div class="radio-item-list">
-                                        <span class="radio-item">
-                                            <input type="radio" name="number_people" value="2" id="number_people_2" />
-                                            <label for="number_people_2">2</label>
-                                        </span>
-                                        <span class="radio-item active">
-                                            <input type="radio" name="number_people" value="4" id="number_people_4" checked="checked" />
-                                            <label for="number_people_4">4</label>
-                                        </span>
-                                        <span class="radio-item">
-                                            <input type="radio" name="number_people" value="6" id="number_people_6" />
-                                            <label for="number_people_6">6</label>
-                                        </span>
-                                        <span class="radio-item">
-                                            <input type="radio" name="number_people" value="8" id="number_people_8" />
-                                            <label for="number_people_8">8</label>
-                                        </span>
-                                        <span class="radio-item">
-                                            <input type="radio" name="number_people" value="10" id="number_people_10" />
-                                            <label for="number_people_10">10</label>
-                                        </span>
-                                    </div>
-                                </div>*@
-
-                            <br /><br />
-
-                            <div class="form-submit">
-                                <button type="submit" class="submit" id="submit" name="submit">Gönder</button>
-                                @*<input type="submit" value="Book now" class="submit" id="submit" name="submit" />*@
-                                @*<a href="#" class="vertify-booking">Verify your booking info from your phone</a> -> doğrulama*@
-                            </div>
-                        }
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+	<div id="London" class="tabcontent">
+	</div>
 
     <div id="Paris" class="tabcontent">
-        <div class="main">
+    </div>*@
 
-            <div class="container">
-                <div class="booking-content">
+	<div class="main">
 
-                    <div class="booking-image">
-                        <img class="booking-img" src="/Content/Register/images/form-img.jpg" alt="Booking Image">
-                    </div>
+		<div class="container">
+			<div class="booking-content">
 
-                    <div class="booking-form">
+				<div class="booking-image">
+					<img class="booking-img" src="/Content/Register/images/form-img.jpg" alt="Booking Image">
+				</div>
 
-                        @using (Html.BeginForm("Register", "Member", FormMethod.Post, new { @id = "booking-form-login" }))
-                        {
-                            @*
-                            @Html.AntiForgeryToken()
+				<div class="booking-form">
 
-                            if (ViewBag.Errors != null && ViewBag.Errors.Count() != 0)
-                            {
-                                <div class="alert alert-danger">
-                                    @foreach (string item in ViewBag.Errors) //hata listesi
-                                    {
-                                        <p>@item</p>
-                                    }
-                                </div>
-                            }
-                                *@
+					@using (Html.BeginForm("Register", "Member", FormMethod.Post, new { @id = "booking-form" }))
+					{
+						@Html.AntiForgeryToken()
+						
+						if (ViewBag.Errors != null && ViewBag.Errors.Count() != 0)
+						{
+							<div class="alert alert-danger">
+								@foreach (string item in ViewBag.Errors) //hata listesi
+								{
+									<p>@item</p>
+								}
+							</div>
+						}
 
-                            <br /><br /><br /><br />
-                            <h2> Giriş Yap </h2>
-                            <div class="form-group form-input">
-                                @Html.TextBoxFor(x => x.Email, new { @name = "name", @required = "required" })
-                                @Html.Label("Kullanıcı Adı", new { @class = "form-label", @for = "name" })
-                            </div>
-                            <div class="form-group form-input">
-                                @*Member'da Password yok ve burada Member isimli model olduğu için LoginViewModel'i model olarak kullanamıyorum. Hata veriyor!*@
-                                @Html.TextBoxFor(x => x.Password, new { @type = "password", @name = "sifre", @required = "required" })
-                                @Html.Label("Şifre", new { @class = "form-label", @for = "sifre" })
-                            </div>
-                            <div class="help-block text-right">
-                                @Html.ActionLink("Şifremi Unuttum", "ForgatPassword", "Account")
-                            </div>
-                            <br /><br />
+						<br /><br />
+						<h2> Kayıt Ol </h2>
+						<div class="form-group form-input">
+							@Html.TextBoxFor(x => x.UserName, new { @name = "name", @required = "required" })
+							@Html.Label("Kullanıcı Adı", new { @class = "form-label", @for = "name" })
+						</div>
+						<div class="form-group form-input">
+							@Html.TextBoxFor(x => x.Email, new { @name = "mail", @required = "required", @type = "email" })
+							@Html.Label("E-posta", new { @class = "form-label", @for = "mail" })
+						</div>
+						<div class="form-group form-input">
+							@Html.TextBoxFor(x => x.PhoneNumber, new { @name = "phone", @required = "required", @type = "number" })
+							@Html.Label("Telefon", new { @class = "form-label", @for = "phone" })
+						</div>
+						<div class="form-group form-input">
+							@Html.TextBox("pass", null, new { @type = "password", @name = "sifre", @required = "required" })
+							@Html.Label("Şifre", new { @class = "form-label", @for = "sifre" })
+						</div>
+						/*<div class="form-group form-input">
+							@Html.TextBox("passR", null, new { @type = "password", @name = "sifre", @required = "required" })
+							@Html.Label("Şifre (Tekrar)", new { @class = "form-label", @for = "sifre" })
+						</div>
+						<div class="form-group">
+							<div class="select-list">
+								@* @Html.DropDownList("food", (IEnumerable<SelectListItem>)ViewBag.Langs, new { @name = "person", @required = "required" })*@
+								<select name="person" id="food" required>
+									<option value="">Person</option>
+									<option value="chef">Chef</option>
+									<option value="member">Member</option>
+								</select>
+							</div>
+						</div>*/
+						@*<div class="form-radio">
+							<label class="label-radio"> Select Your Dining Space</label>
+							<div class="radio-item-list">
+								<span class="radio-item">
+									<input type="radio" name="number_people" value="2" id="number_people_2" />
+									<label for="number_people_2">2</label>
+								</span>
+								<span class="radio-item active">
+									<input type="radio" name="number_people" value="4" id="number_people_4" checked="checked" />
+									<label for="number_people_4">4</label>
+								</span>
+								<span class="radio-item">
+									<input type="radio" name="number_people" value="6" id="number_people_6" />
+									<label for="number_people_6">6</label>
+								</span>
+								<span class="radio-item">
+									<input type="radio" name="number_people" value="8" id="number_people_8" />
+									<label for="number_people_8">8</label>
+								</span>
+								<span class="radio-item">
+									<input type="radio" name="number_people" value="10" id="number_people_10" />
+									<label for="number_people_10">10</label>
+								</span>
+							</div>
+						</div>*@
 
-                            <div class="form-submit">
-                                <button type="submit" class="submit giris" name="giris">Gönder</button>
-                            </div>
-                        }
+						<br /><br />
 
-                    </div>
-                </div>
-            </div>
+						<div class="form-submit">
+							<button type="submit" class="submit" id="submit" name="submit">Gönder</button>
+							@*<input type="submit" value="Book now" class="submit" id="submit" name="submit" />*@
+							@*<a href="#" class="vertify-booking">Verify your booking info from your phone</a> -> doğrulama*@
+						</div>
+						@Html.ActionLink("Giriş Yap","LoginPage","Member")
+					}
 
-        </div>
-    </div>
+				</div>
+			</div>
+		</div>
 
-    <script>
-        $(".giris").click(function () {
-            var gidecekVeri = $("#booking-form-login").serialize();
-            $.ajax({
-                url: "/Member/Login",
-                method: "POST",
-                data: gidecekVeri,
-                success: function (result) {
-                    if (result.success)
-                        window.location = window.location;
-                    else
-                        alert("Giriş başarısız. Tekrar deneyin.");
-                }
-            });
-        });
-    </script>
+	</div>
 
-    <script>
+    @*<script>
         function openCity(evt, cityName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
@@ -231,6 +156,6 @@
             document.getElementById(cityName).style.display = "block";
             evt.currentTarget.className += " active";
         }
-    </script>
+    </script>*@
 </body>
 </html>
