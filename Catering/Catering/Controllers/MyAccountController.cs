@@ -15,5 +15,10 @@ namespace Catering.Controllers
 
             return View();
         }
+
+        public ActionResult Proile()
+        {
+            return View();
+        }
     }
 }

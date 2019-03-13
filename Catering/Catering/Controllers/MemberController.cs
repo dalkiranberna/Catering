@@ -30,7 +30,7 @@ namespace Catering.Controllers
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult _Register(Member member, string pass, HttpPostedFileBase img)
+		public ActionResult Register(Member member, string pass, HttpPostedFileBase img)
 		{
 			UserStore<Member> store = new UserStore<Member>(UnitOfWork.Create());
 			UserManager<Member> manager = new UserManager<Member>(store);
