@@ -177,6 +177,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\MyAccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -340,6 +341,44 @@
     <Content Include="Content\Home\Rooftop Restaurant-doc\syntax-highlighter\styles\shThemeMDUltra.css" />
     <Content Include="Content\Home\Rooftop Restaurant-doc\syntax-highlighter\styles\shThemeMidnight.css" />
     <Content Include="Content\Home\Rooftop Restaurant-doc\syntax-highlighter\styles\shThemeRDark.css" />
+    <Content Include="Content\MyAccount\css\animate.css" />
+    <Content Include="Content\MyAccount\css\bootstrap.min.css" />
+    <Content Include="Content\MyAccount\css\core-style.css" />
+    <Content Include="Content\MyAccount\css\font-awesome.min.css" />
+    <Content Include="Content\MyAccount\css\jquery-ui.min.css" />
+    <Content Include="Content\MyAccount\css\magnific-popup.css" />
+    <Content Include="Content\MyAccount\css\nouislider.css" />
+    <Content Include="Content\MyAccount\css\owl.carousel.css" />
+    <Content Include="Content\MyAccount\css\responsive.css" />
+    <Content Include="Content\MyAccount\css\style.css" />
+    <Content Include="Content\MyAccount\css\themify-icons.css" />
+    <Content Include="Content\MyAccount\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\MyAccount\fonts\themify.svg" />
+    <Content Include="Content\MyAccount\img\bg-img\bg-1.jpg" />
+    <Content Include="Content\MyAccount\img\bg-img\bg-2.jpg" />
+    <Content Include="Content\MyAccount\img\bg-img\bg-3.jpg" />
+    <Content Include="Content\MyAccount\img\bg-img\bg-4.jpg" />
+    <Content Include="Content\MyAccount\img\bg-img\bg-5.jpg" />
+    <Content Include="Content\MyAccount\img\bg-img\tes-1.jpg" />
+    <Content Include="Content\MyAccount\img\core-img\favicon.ico" />
+    <Content Include="Content\MyAccount\img\core-img\logo.png" />
+    <Content Include="Content\MyAccount\img\product-img\product-1.jpg" />
+    <Content Include="Content\MyAccount\img\product-img\product-10.jpg" />
+    <Content Include="Content\MyAccount\img\product-img\product-11.jpg" />
+    <Content Include="Content\MyAccount\img\product-img\product-12.jpg" />
+    <Content Include="Content\MyAccount\img\product-img\product-2.jpg" />
+    <Content Include="Content\MyAccount\img\product-img\product-3.jpg" />
+    <Content Include="Content\MyAccount\img\product-img\product-4.jpg" />
+    <Content Include="Content\MyAccount\img\product-img\product-5.jpg" />
+    <Content Include="Content\MyAccount\img\product-img\product-6.jpg" />
+    <Content Include="Content\MyAccount\img\product-img\product-7.jpg" />
+    <Content Include="Content\MyAccount\img\product-img\product-8.jpg" />
+    <Content Include="Content\MyAccount\img\product-img\product-9.jpg" />
+    <Content Include="Content\MyAccount\js\active.js" />
+    <Content Include="Content\MyAccount\js\bootstrap.min.js" />
+    <Content Include="Content\MyAccount\js\jquery\jquery-2.2.4.min.js" />
+    <Content Include="Content\MyAccount\js\plugins.js" />
+    <Content Include="Content\MyAccount\js\popper.min.js" />
     <Content Include="Content\Register\css\style.css" />
     <Content Include="Content\Register\fonts\material-icon\css\material-design-iconic-font.css" />
     <Content Include="Content\Register\fonts\material-icon\css\material-design-iconic-font.min.css" />
@@ -563,6 +602,14 @@
     <Content Include="Content\Register\scss\layouts\main.scss" />
     <Content Include="Content\Register\scss\layouts\responsive.scss" />
     <Content Include="Content\Register\scss\style.scss" />
+    <Content Include="Content\MyAccount\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\MyAccount\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\MyAccount\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\MyAccount\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\MyAccount\fonts\FontAwesome.otf" />
+    <Content Include="Content\MyAccount\fonts\themify.eot" />
+    <Content Include="Content\MyAccount\fonts\themify.ttf" />
+    <Content Include="Content\MyAccount\fonts\themify.woff" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -610,6 +657,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Member\Register.cshtml" />
     <Content Include="Views\Member\LoginPage.cshtml" />
+    <Content Include="Views\MyAccount\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
