@@ -33,6 +33,7 @@ namespace Entity
         public int Like { get; set; }
         public int Dislike { get; set; }
         public string Password { get; set; }
+		public string PasswordConfirm { get; set; }
         public virtual ShoppingCart ShoppingCart { get; set; }
         public virtual List<Certificate> Certificates { get; set; }
         public virtual List<Product> Products { get; set; } //kişinin dükkanındaki ürünler

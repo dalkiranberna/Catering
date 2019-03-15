@@ -379,6 +379,19 @@
     <Content Include="Content\MyAccount\js\jquery\jquery-2.2.4.min.js" />
     <Content Include="Content\MyAccount\js\plugins.js" />
     <Content Include="Content\MyAccount\js\popper.min.js" />
+    <Content Include="Content\MyAccount\Store\Images\ayvareceli.jpeg" />
+    <Content Include="Content\MyAccount\Store\Images\cilekreceli.jpg" />
+    <Content Include="Content\MyAccount\Store\Images\domates.jpg" />
+    <Content Include="Content\MyAccount\Store\Images\elmareceli.jpg" />
+    <Content Include="Content\MyAccount\Store\Images\eriste.png" />
+    <Content Include="Content\MyAccount\Store\Images\fasulye.jpg" />
+    <Content Include="Content\MyAccount\Store\Images\genel.jpg" />
+    <Content Include="Content\MyAccount\Store\Images\genel2.jpg" />
+    <Content Include="Content\MyAccount\Store\Images\genel3.jpg" />
+    <Content Include="Content\MyAccount\Store\Images\genel4.jpg" />
+    <Content Include="Content\MyAccount\Store\Images\genel5.jpg" />
+    <Content Include="Content\MyAccount\Store\Images\genel6.jpg" />
+    <Content Include="Content\MyAccount\Store\myStore.css" />
     <Content Include="Content\Register\css\style.css" />
     <Content Include="Content\Register\fonts\material-icon\css\material-design-iconic-font.css" />
     <Content Include="Content\Register\fonts\material-icon\css\material-design-iconic-font.min.css" />
@@ -658,10 +671,12 @@
     <Content Include="Views\Member\Register.cshtml" />
     <Content Include="Views\Member\LoginPage.cshtml" />
     <Content Include="Views\MyAccount\Index.cshtml" />
-    <Content Include="Views\MyAccount\Profile.cshtml" />
+    <Content Include="Views\MyAccount\MyProfile.cshtml" />
+    <Content Include="Views\MyAccount\Store.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\Members\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
