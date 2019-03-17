@@ -18,7 +18,7 @@ namespace Entity
         public string MemberId { get; set; } //memberid == getuserid kişinin ürünlerini getir
         public virtual List<ProductItem> ProductItems { get; set; }
         //public int CategoryId { get; set; }
-        public virtual ProductCategory Category { get; set; }
+        //public virtual ProductCategory Category { get; set; }
         public Product()
         {
             Like = 0;
@@ -26,12 +26,12 @@ namespace Entity
         }
     }
 
-    public class ProductCategory : IEntity<int>
+    /*public class ProductCategory : IEntity<int>
     {
         public int Id { get; set; }
         public string CatName { get; set; }
         public virtual List<Product> Products { get; set; }
-    }
+    }*/
 
     public class ProductItem : IEntity<int>
     {

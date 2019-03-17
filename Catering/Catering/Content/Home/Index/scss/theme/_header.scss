@@ -71,8 +71,8 @@
 .dropdown-item:focus,
 .dropdown-item:hover {
     color: #16181b;
-    text-decoration: none;
-    background-color: transparent;
+    text-decoration: none !important;
+    background-color: transparent !important;
 }
 
 .menu-left {
@@ -109,25 +109,31 @@
             text-transform: uppercase;
             font-size: 13px;
             font-weight: 500;
+
             &:hover,
             &.active {
-                color: $primary-color;
+                color: #ad9966 !important;
             }
+
             @media(max-width: 1199px) {
                 margin-right: 16px;
             }
+
             @media(max-width: 991px) {
                 margin-right: 7px;
                 letter-spacing: normal;
             }
         }
+
         .dropdown-menu {
             border-radius: 0;
             margin-top: 28px;
             border: none;
+
             @media(max-width: 767px) {
-                margin-top:0px;
+                margin-top: 0px;
             }
+
             a {
                 display: block;
                 margin-bottom: 10px;
@@ -135,17 +141,22 @@
             }
         }
     }
+
     @media(max-width: 1280px) and (min-width:799px) {
         font-size: 11px;
     }
+
     @media(max-width:800px) {
         font-size: 14px;
     }
+
     @media(max-width:768px) {
         text-align: right;
     }
+
     .hide-lg {
         display: none;
+
         @media (max-width: 767px) {
             display: block;
         }

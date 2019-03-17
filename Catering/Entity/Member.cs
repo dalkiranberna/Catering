@@ -28,8 +28,10 @@ namespace Entity
         public int Age { get; set; }
         public string ImageURL { get; set; }
         public bool HasPhoto { get; set; } //fotoğrafı yoksa default bi şey getirsin diye
+        public string Education { get; set; }
         public int Experience { get; set; }
         public string WhoAmI { get; set; }
+        public string Location { get; set; }
         public int Like { get; set; }
         public int Dislike { get; set; }
         public string Password { get; set; }

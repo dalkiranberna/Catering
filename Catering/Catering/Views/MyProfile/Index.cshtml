@@ -1,0 +1,68 @@
+﻿@using Entity
+@model Member
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilim</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="~/Content/MyProfile/Index/index.css" rel="stylesheet" />
+</head>
+
+
+<body>
+    <div class="container portfolio">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading">
+                    <img src="https://image.ibb.co/cbCMvA/logo.png" />
+                    <a href="/MyProfile/Edit" class="duzenle">Profilimi Düzenle</a>
+                </div>
+            </div>
+        </div>
+        <div class="bio-info">
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="bio-image">
+                                <img src="@ViewBag.Photo" alt="image" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bio-content">
+                        <h1>@User.Identity.Name</h1>
+                        <p><h6 style="display:inline-block;">Yaş:</h6>  @Model.Age</p>
+                        <p><h6 style="display:inline-block;">Konum:</h6>  @Model.Location</p>
+                        <p><h6 style="display:inline-block;">Eğitim:</h6>  @Model.Education</p>
+                        <p><h6 style="display:inline-block;">Deneyim:</h6>  @Model.Experience</p>
+
+                        <p><h6 style="display:inline-block;">Ben Kimim?:</h6>  @Model.WhoAmI</p>
+                        <a href="#"><i class="far fa-thumbs-up" style="margin-right: 50px; color: red; font-size: 20px;"> @Model.Like</i></a>
+                        <a href="#"><i class="far fa-thumbs-down" style="color: black; font-size: 20px;"> @Model.Dislike</i></a>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

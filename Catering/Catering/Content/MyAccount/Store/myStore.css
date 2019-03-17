@@ -1,4 +1,8 @@
-﻿h3.h3 {
+﻿body {
+    background-color: #B0E0E6 !important;
+}
+
+h3.h3 {
 	text-align: center;
 	margin: 1em;
 	text-transform: capitalize;
@@ -140,4 +144,12 @@
 	.product-grid9 {
 		margin-bottom: 30px
 	}
+}
+
+.yeniUrun{
+    color:black !important;
+}
+
+.yeniUrun:hover{
+    text-decoration:none;
 }

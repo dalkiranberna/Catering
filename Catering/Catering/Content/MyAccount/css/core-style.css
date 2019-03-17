@@ -274,7 +274,7 @@ img {
 }
 
 #scrollUp {
-    background-color: #ff084e;
+    background-color: #ad9966 !important;
     border-radius: 0;
     bottom: 0;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
@@ -400,7 +400,7 @@ img {
 	}
 
 .cart_quantity {
-    background-color: #ff084e;
+    background-color: #edb77d !important;
     border-radius: 50%;
     color: #fff;
     font-size: 11px;
@@ -577,19 +577,19 @@ img {
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.15);
 }
 
-.dropdown-menu .dropdown-item {
+/*.dropdown-menu .dropdown-item {
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
-}
+}*/
 
-.dropdown-menu .dropdown-item:focus,
-.dropdown-menu .dropdown-item:hover {
-    color: #fff;
-    text-decoration: none;
-    background-color: #ff084e;
-    font-weight: 700;
-}
+    .dropdown-menu .dropdown-item:focus,
+    .dropdown-menu .dropdown-item:hover {
+        color: #fff;
+        text-decoration: none;
+        background-color: #ad9966;
+        font-weight: 700;
+    }
 
 /* -------------------
 :: 6.0 Side Menu Area CSS

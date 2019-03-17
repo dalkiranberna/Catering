@@ -1,0 +1,132 @@
+﻿@using Entity.ViewModels
+@model MyAccountViewModel
+
+@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilimi Düzenle</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="~/Content/MyProfile/Index/index.css" rel="stylesheet" />
+
+
+</head>
+
+
+<body>
+    <div class="container portfolio">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading">
+                    <img src="https://image.ibb.co/cbCMvA/logo.png" />
+                </div>
+            </div>
+        </div>
+        <div class="bio-info">
+            <div class="row">
+                <div class="container bootstrap snippet">
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <p>@ViewBag.Error</p>
+                    }
+                    <br /><br />
+                    <div class="row">
+                        @using (Html.BeginForm("MyProfile", "MyAccount", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                        {
+                            <div class="col-sm-3">
+                                <div class="text-center">
+                                    @if (ViewBag.Photo != null)
+                                    {
+                                        <img src="@ViewBag.Photo?a=@DateTime.Now.Second" class="avatar img-circle img-thumbnail" alt="avatar">
+                                    }
+                                    else
+                                    {
+                                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                                    }
+
+                                    <br />
+                                    <h1>@User.Identity.Name</h1>
+                                    <br /><br />
+                                    @Html.TextBox("imgFile", null, new { @type = "file", @class = "text-center center-block file-upload" })
+                                </div><br>
+
+                                <ul class="list-group">
+                                    <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
+                                </ul>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Social Media</div>
+                                    <div class="panel-body">
+                                        <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9">
+                                <br /><br /><br /><br /><br />
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="home">
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <h4>@Html.Label("Kullanıcı Adı", new { @for = "first_name", @name = "first_name" })</h4>
+                                                @*<label for="first_name"><h4>Kullanıcı Adı</h4></label>*@
+                                                @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+                                                @*<input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">*@
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <h4>@Html.Label("Telefon", new { @for = "phone" })</h4>
+                                                @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", @name = "phone" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <h4>@Html.Label("E-posta", new { @for = "email" })</h4>
+                                                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @name = "email" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <h4>@Html.Label("Şifre", new { @for = "password" })</h4>
+                                                @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @name = "password", @required = "required", @type = "password" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-xs-12">
+                                                    <br>
+                                                    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i>Save</button>
+                                                </div>
+                                            </div>
+
+                                            <hr>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>
