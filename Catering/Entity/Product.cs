@@ -17,6 +17,7 @@ namespace Entity
         public int Dislike { get; set; }
         public string MemberId { get; set; } //memberid == getuserid kişinin ürünlerini getir
         public virtual List<ProductItem> ProductItems { get; set; }
+        public virtual List<OrderItem> OrderItems { get; set; }
         //public int CategoryId { get; set; }
         //public virtual ProductCategory Category { get; set; }
         public Product()
