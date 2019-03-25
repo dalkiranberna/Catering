@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = null;
+}
+
+<head>
+    <link href="~/Content/Cart/Checkout/Check.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <br /><br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Panel title</h3>
+                        <div class="pull-right">
+                            <!-- Tabs -->
+                            <ul class="nav panel-tabs">
+                                <li class="active"><a href="#tab1" data-toggle="tab">Bank Transfer</a></li>
+                                <li><a href="#tab2" data-toggle="tab">Credit Card</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+
+                                <h1>Pay With Bank Transfer</h1>
+                                <p>
+                                    <strong>Cart No: @ViewBag.CartNo</strong>
+                                </p>
+                                <p>Please add card no to description field while transfering.</p>
+
+                                <form method="post" action="/Cart/PayBankTransfer">
+                                    <strong>Total: @ViewBag.Total</strong>
+                                    <br />
+                                    <input type="checkbox" name="approve" value="1" id="a" /> @*hiç value yazmazsak on off gibi şeylerle gider*@
+                                    <label for="a">I approve</label> @*chechbox seçildiğinde label de seçili görünsün diye bağladık. -> Onaylıyorum kutucuğu *@
+                                    <br />
+                                    <button class=" btn btn-primary">I made the payment</button>
+                                </form>
+
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Bank</th>
+                                        <th>Branch</th>
+                                        <th>To</th>
+                                        <th>Account No</th>
+                                        <th>IBAN</th>
+                                    </tr>
+                                    <tr>
+                                        <td>İş Bankası</td>
+                                        <td>İstanbul Küçükyalı Şube No:160</td>
+                                        <td>Firma Ltd. Şti.</td>
+                                        <td>123456</td>
+                                        <td>TR11-2222-3333-4444-5555</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="tab2">Coming soon..</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

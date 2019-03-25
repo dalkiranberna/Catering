@@ -22,6 +22,8 @@ namespace DataAccessLayer
         public virtual DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public virtual DbSet<Certificate> Certificates { get; set; }
         public virtual DbSet<Notification> Notifications { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderItem> OrderItems { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -33,11 +35,13 @@ namespace DataAccessLayer
                 .HasKey(x => x.Id);
             modelBuilder.Entity<ShoppingCart>()
                 .HasKey(x => x.Id);
-            /*modelBuilder.Entity<ProductCategory>()
-                .HasKey(x => x.Id);*/
             modelBuilder.Entity<Certificate>()
                 .HasKey(x => x.Id);
             modelBuilder.Entity<Notification>()
+                .HasKey(x => x.Id);
+            modelBuilder.Entity<Order>()
+                .HasKey(x => x.Id);
+            modelBuilder.Entity<OrderItem>()
                 .HasKey(x => x.Id);
             #endregion
 
@@ -56,18 +60,18 @@ namespace DataAccessLayer
             modelBuilder.Entity<Member>()
                 .HasOptional(x => x.ShoppingCart)
                 .WithRequired(x => x.Member);
-
-            /*modelBuilder.Entity<Product>()
-               .HasRequired(x => x.Category)
-                .WithMany(x => x.Products);*/
-            //.HasForeignKey(x => x.CategoryId);
             modelBuilder.Entity<Product>()
                 .HasMany(x => x.ProductItems)
                 .WithRequired(x => x.Product);
-
             modelBuilder.Entity<ShoppingCart>()
                 .HasMany(x => x.ProductItems)
                 .WithRequired(x => x.ShoppingCart);
+            modelBuilder.Entity<Order>()
+                .HasRequired(x => x.Member)
+                .WithMany(x => x.Orders);
+            modelBuilder.Entity<OrderItem>()
+                .HasRequired(x => x.Order)
+                .WithMany(x => x.OrderItems);
             #endregion
 
             base.OnModelCreating(modelBuilder);

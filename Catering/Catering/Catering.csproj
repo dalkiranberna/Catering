@@ -194,6 +194,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Cart\Checkout\Check.css" />
     <Content Include="Content\Home\Index\css\availability-calendar.css" />
     <Content Include="Content\Home\Index\css\bootstrap-datepicker.css" />
     <Content Include="Content\Home\Index\css\bootstrap.css" />
@@ -704,6 +705,7 @@
     <Content Include="Views\MyProfile\Index.cshtml" />
     <Content Include="Views\MyProfile\Edit.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -37,7 +37,7 @@
                     {
                         <div class="row">
                             <div class="col-xs-2">
-                                <img class="img-responsive" src="@Html.Raw(item.Product.Id + ".jpg")">
+                                <img class="img-responsive" src="~/Uploads/Products/@Html.Raw(item.Product.Id + ".jpg")">
                             </div>
                             <div class="col-xs-4">
                                 <h4 class="product-name"><strong>@item.Product.ProductName</strong></h4><h4><small>Product description</small></h4>
@@ -50,7 +50,7 @@
                                     <input type="text" class="form-control input-sm" value="1">
                                 </div>
                                 <div class="col-xs-2">
-									<a href="/Cart/Delete/@item.Product.Id class="btn btn-link btn-xs">
+									<a href="/Cart/Delete/@item.Product.Id" class="btn btn-link btn-xs">
 										<span class="glyphicon glyphicon-trash"> </span>
 									</a>
                                 </div>

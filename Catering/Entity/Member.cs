@@ -25,6 +25,7 @@ namespace Entity
 
     public class Member : IdentityUser
     {
+        public string TC { get; set; }
         public int Age { get; set; }
         public string ImageURL { get; set; }
         public bool HasPhoto { get; set; } //fotoğrafı yoksa default bi şey getirsin diye
@@ -39,6 +40,7 @@ namespace Entity
         public virtual ShoppingCart ShoppingCart { get; set; }
         public virtual List<Certificate> Certificates { get; set; }
         public virtual List<Product> Products { get; set; } //kişinin dükkanındaki ürünler
+        public virtual List<Order> Orders { get; set; }
         public int SenderId { get; set; }
         public List<Notification> Notifications { get; set; }
         public Gender Gender { get; set; }
