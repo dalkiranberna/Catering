@@ -67,12 +67,9 @@ namespace Catering.Controllers
 		public JsonResult Login(LoginViewModel info)
 		{
 			ApplicationSignInManager signInManager = HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-
-			//2. Giriş yapmayı dene (result döner)
+			
 			SignInStatus result = signInManager.PasswordSignIn(info.Email, info.Password, true, false); //MVC username ile giriş yaptırıyor
 
-			//3. Sonucu döndür
-			//sonuç döndürürken enum'ı switch-case ile yazmak daha mantıklı. SignInStatus bir enum :
 			switch (result)
 			{
 				case SignInStatus.Success:

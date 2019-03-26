@@ -10,7 +10,7 @@ namespace BusinessLogicLayer.Extensions
 {
     public static class UserExtensions
     {
-        public static string GetTC(this IIdentity id)
+        public static string GetTC(this IIdentity id) //iprincipal
         {
             var allId = (ClaimsIdentity)id;
             return allId.FindFirst("TC").Value;

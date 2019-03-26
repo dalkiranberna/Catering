@@ -20,8 +20,8 @@ namespace Catering.Controllers
             UserStore<Member> store = new UserStore<Member>(UnitOfWork.Create());
             UserManager<Member> manager = new UserManager<Member>(store);
 
-            string uId = User.Identity.GetUserId(); //giriş yapan kişinin id si
-            Member member = manager.FindById(uId); //o id ye sahip kişiyi bulduk
+            string uId = User.Identity.GetUserId(); 
+            Member member = manager.FindById(uId); 
             
             string img = "/Uploads/Members/" + member.Id + ".jpg";
 
