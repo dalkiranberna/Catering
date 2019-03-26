@@ -33,24 +33,24 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    @foreach (ProductItem item in Model.ProductItems)
+                    @foreach (Product item in Model.Products)
                     {
                         <div class="row">
                             <div class="col-xs-2">
-                                <img class="img-responsive" src="~/Uploads/Products/@Html.Raw(item.Product.Id + ".jpg")">
+                                <img class="img-responsive" src="~/Uploads/Products/@Html.Raw(item.Id + ".jpg")">
                             </div>
                             <div class="col-xs-4">
-                                <h4 class="product-name"><strong>@item.Product.ProductName</strong></h4><h4><small>Product description</small></h4>
+                                <h4 class="product-name"><strong>@item.ProductName</strong></h4><h4><small>Product description</small></h4>
                             </div>
                             <div class="col-xs-6">
                                 <div class="col-xs-6 text-right">
-                                    <h6><strong>@item.Product.Price.ToString("C") <span class="text-muted">x</span></strong></h6>
+                                    <h6><strong>@item.Price.ToString("C") <span class="text-muted">x</span></strong></h6>
                                 </div>
                                 <div class="col-xs-4">
                                     <input type="text" class="form-control input-sm" value="1">
                                 </div>
                                 <div class="col-xs-2">
-									<a href="/Cart/Delete/@item.Product.Id" class="btn btn-link btn-xs">
+									<a href="/Cart/Delete/@item.Id" class="btn btn-link btn-xs">
 										<span class="glyphicon glyphicon-trash"> </span>
 									</a>
                                 </div>
@@ -66,7 +66,7 @@
                 <div class="panel-footer">
                     <div class="row text-center">
                         <div class="col-xs-9">
-                            <h4 class="text-right">Total <strong>@Model.ProductItems.Sum(x => x.TotalPrice)</strong></h4>
+                            <h4 class="text-right">Total <strong>@Model.Products.Sum(x => x.Price)</strong></h4>
                         </div>
                         <div class="col-xs-3">
 							<a href="/Cart/Checkout" type="button" class="btn btn-success btn-block">

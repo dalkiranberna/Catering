@@ -15,10 +15,6 @@ namespace Catering.Models
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
-            Claim c1 = new Claim("TC", this.TC.ToString());
-            userIdentity.AddClaim(c1);
-            Claim c2 = new Claim("NameLastname", UserName);
-            userIdentity.AddClaim(c2);
 
             return userIdentity;
         }

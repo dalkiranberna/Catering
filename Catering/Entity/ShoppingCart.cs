@@ -18,13 +18,13 @@ namespace Entity
         public int NumberOfParticipants { get; set; }
         public string Address { get; set; }
         public virtual Member Member { get; set; }
-        public virtual List<ProductItem> ProductItems { get; set; }
+        public virtual List<Product> Products { get; set; }
         public OrganizationTheme OrganizationTheme { get; set; }
         public decimal? SubTotal
         {
             get
             {
-                return ProductItems.Sum(x => x.TotalPrice);
+                return Products.Sum(x => x.Price);
             }
         }
 

@@ -17,8 +17,6 @@ namespace DataAccessLayer
         }
 
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<ProductItem> ProductItems { get; set; }
-        //public virtual DbSet<ProductCategory> ProductCategories { get; set; }
         public virtual DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public virtual DbSet<Certificate> Certificates { get; set; }
         public virtual DbSet<Notification> Notifications { get; set; }
@@ -30,8 +28,6 @@ namespace DataAccessLayer
         {
             #region TableConfiguration
             modelBuilder.Entity<Product>()
-                .HasKey(x => x.Id);
-            modelBuilder.Entity<ProductItem>()
                 .HasKey(x => x.Id);
             modelBuilder.Entity<ShoppingCart>()
                 .HasKey(x => x.Id);
@@ -60,11 +56,11 @@ namespace DataAccessLayer
             modelBuilder.Entity<Member>()
                 .HasOptional(x => x.ShoppingCart)
                 .WithRequired(x => x.Member);
-            modelBuilder.Entity<Product>()
+            /*modelBuilder.Entity<Product>()
                 .HasMany(x => x.ProductItems)
-                .WithRequired(x => x.Product);
+                .WithRequired(x => x.Product);*/
             modelBuilder.Entity<ShoppingCart>()
-                .HasMany(x => x.ProductItems)
+                .HasMany(x => x.Products)
                 .WithRequired(x => x.ShoppingCart);
             modelBuilder.Entity<Order>()
                 .HasRequired(x => x.Member)
@@ -72,9 +68,12 @@ namespace DataAccessLayer
             modelBuilder.Entity<OrderItem>()
                 .HasRequired(x => x.Order)
                 .WithMany(x => x.OrderItems);
-            #endregion
+			modelBuilder.Entity<OrderItem>()
+				.HasRequired(x => x.Product)
+				.WithMany(x => x.OrderItems);
+			#endregion
 
-            base.OnModelCreating(modelBuilder);
+			base.OnModelCreating(modelBuilder);
         }
     }
 }

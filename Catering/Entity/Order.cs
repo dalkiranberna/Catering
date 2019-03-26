@@ -12,7 +12,8 @@ namespace Entity
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public bool IsPaid { get; set; }
-        public int MemberId { get; set; }
+		public decimal SubTotal { get; set; }
+		public int MemberId { get; set; }
         public Member Member { get; set; }
         public virtual List<OrderItem> OrderItems { get; set; }
     }

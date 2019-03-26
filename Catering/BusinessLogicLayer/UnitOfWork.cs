@@ -13,7 +13,6 @@ namespace BusinessLogicLayer
         public BaseRepository<Notification, int> Notifications;
         public BaseRepository<Product, int> Products;
         public BaseRepository<ShoppingCart, string> FoodShoppings;
-        public BaseRepository<ProductItem, int> ProductItems;
 
         public CateringContext db;
 
@@ -24,7 +23,6 @@ namespace BusinessLogicLayer
             Notifications = new BaseRepository<Notification, int>(db);
             Products = new BaseRepository<Product, int>(db);
             FoodShoppings = new BaseRepository<ShoppingCart, string>(db);
-            ProductItems = new BaseRepository<ProductItem, int>(db);
 
         }
 

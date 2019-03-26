@@ -27,7 +27,7 @@ namespace Catering.Controllers
 				if (m.ShoppingCart == null)
 				{
 					m.ShoppingCart = new ShoppingCart();
-					m.ShoppingCart.ProductItems = new List<ProductItem>();
+					m.ShoppingCart.Products = new List<Product>();
 				}
 				return View(m.ShoppingCart);
 			}
@@ -39,22 +39,22 @@ namespace Catering.Controllers
             string uId = User.Identity.GetUserId();
             Member m = _uw.db.Users.Find(uId);
 
-            //ViewBag.Total = m.ShoppingCart.SubTotal;
-            //ViewBag.CartNo = m.ShoppingCart.Id;
+            ViewBag.Total = m.ShoppingCart.SubTotal;
+            ViewBag.CartNo = m.ShoppingCart.Id;
             return View();
         }
 
         public ActionResult Delete(int id)
 		{
-            ProductItem toBeDeleted = _uw.db.ProductItems.Find(id); //silinecek ürünü bulur
+			Product toBeDeleted = _uw.db.Products.Find(id); //silinecek ürünü bulur
 
             string uId = User.Identity.GetUserId();
             Member m = _uw.db.Users.Find(uId);
             
-            m.ShoppingCart.ProductItems.Remove(toBeDeleted);
+            m.ShoppingCart.Products.Remove(toBeDeleted);
             _uw.db.Entry(m).State = EntityState.Modified;
-            _uw.db.SaveChanges();
-            return RedirectToAction("Index");
+			_uw.Complete();
+			return RedirectToAction("Index");
         }
 
         public ActionResult AddToCart(int id)
@@ -68,16 +68,16 @@ namespace Catering.Controllers
             if (m.ShoppingCart == null)
                 m.ShoppingCart = new ShoppingCart();
 
-            if (m.ShoppingCart.ProductItems == null)
-                m.ShoppingCart.ProductItems = new List<ProductItem>();
+            if (m.ShoppingCart.Products == null)
+                m.ShoppingCart.Products = new List<Product>();
 
-            ProductItem chosenProduct = _uw.db.ProductItems.Find(id);
-            m.ShoppingCart.ProductItems.Add(chosenProduct);
+			Product chosenProduct = _uw.db.Products.Find(id);
+            m.ShoppingCart.Products.Add(chosenProduct);
 
             _uw.db.Entry(m).State = EntityState.Modified;
-            _uw.db.SaveChanges();
+			_uw.Complete();
 
-            return RedirectToAction("Index", "Home");
+			return RedirectToAction("Index", "Home");
         }
 
         public ActionResult PayBankTransfer(int? approve)
@@ -110,26 +110,26 @@ namespace Catering.Controllers
             string uId = User.Identity.GetUserId();
             Member m = _uw.db.Users.Find(uId);
 
-            m.ShoppingCart.ProductItems.Clear();
+            m.ShoppingCart.Products.Clear();
             _uw.db.Entry(m).State = EntityState.Modified;
-            _uw.db.SaveChanges();
+			_uw.Complete();
         }
 
         private Order CreateOrder(bool isPaid)
         {
             string uId = User.Identity.GetUserId(); 
-            Member m = db.Users.Find(uId);
+            Member m = _uw.db.Users.Find(uId);
             
             Order order = new Order();
             order.Member = m;
             order.IsPaid = isPaid;
             order.OrderItems = new List<OrderItem>();
 
-            foreach (var item in m.ShoppingCart.ProductItems)
+            foreach (var item in m.ShoppingCart.Products)
             {
                 OrderItem oi = new OrderItem();
                 order.Date = DateTime.Now;
-                oi.Movies = item;
+                oi.Product = item;
                 oi.Count = 1;
                 oi.Price = item.Price; //sonradan fiyat değişse bile o an ne kadara almış tuttuk
                 order.OrderItems.Add(oi);
@@ -137,9 +137,9 @@ namespace Catering.Controllers
 
             order.SubTotal = m.ShoppingCart.SubTotal.Value;
             _uw.db.Orders.Add(order);
-            _uw.db.SaveChanges(); 
+			_uw.Complete();
 
-            return order;
+			return order;
         }
     }
 }
