@@ -56,9 +56,6 @@ namespace DataAccessLayer
             modelBuilder.Entity<Member>()
                 .HasOptional(x => x.ShoppingCart)
                 .WithRequired(x => x.Member);
-            /*modelBuilder.Entity<Product>()
-                .HasMany(x => x.ProductItems)
-                .WithRequired(x => x.Product);*/
             modelBuilder.Entity<ShoppingCart>()
                 .HasMany(x => x.Products)
                 .WithRequired(x => x.ShoppingCart);

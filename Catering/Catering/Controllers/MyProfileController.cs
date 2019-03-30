@@ -39,10 +39,11 @@ namespace Catering.Controllers
             vm.PhoneNumber = member.PhoneNumber;
             vm.UserName = member.UserName;
             vm.Password = member.Password;
+            member.HasPhoto = true; //buraya sonra tekrar bak! bu burada olmayacak
             if (member.HasPhoto)
-                ViewBag.Photo = "/Uploads/Members/" + uId + ".jpg";
+                ViewBag.Photo = "/Uploads/Members/" + member.Id + ".jpg";
 
-            return View();
+            return View(vm);
         }
 
         [HttpPost]
@@ -81,4 +82,5 @@ namespace Catering.Controllers
             return View(info);
         }
     }
+    
 }

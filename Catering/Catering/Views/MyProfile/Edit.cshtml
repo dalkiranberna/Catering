@@ -49,7 +49,7 @@
                                 <div class="text-center">
                                     @if (ViewBag.Photo != null)
                                     {
-                                        <img src="@ViewBag.Photo?a=@DateTime.Now.Second" class="avatar img-circle img-thumbnail" alt="avatar">
+                                        <img src="@ViewBag.Photo" class="avatar img-circle img-thumbnail" alt="avatar">
                                     }
                                     else
                                     {
@@ -62,16 +62,12 @@
                                     @Html.TextBox("imgFile", null, new { @type = "file", @class = "text-center center-block file-upload" })
                                 </div><br>
 
-                                <ul class="list-group">
-                                    <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
-                                </ul>
-
-                                <div class="panel panel-default">
+                                @*<div class="panel panel-default">
                                     <div class="panel-heading">Social Media</div>
                                     <div class="panel-body">
                                         <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
                                     </div>
-                                </div>
+                                </div>*@
                             </div>
                             <div class="col-sm-9">
                                 <br /><br /><br /><br /><br />

@@ -42,7 +42,7 @@ namespace Catering.Controllers
 
 				if (img != null)
 				{
-					string path = Server.MapPath("/Uploads/Member/");
+					string path = Server.MapPath("/Uploads/Members/");
 					img.SaveAs(path + member.Id + ".jpg");
 					member.HasPhoto = true;
 
@@ -66,18 +66,24 @@ namespace Catering.Controllers
 
 		public JsonResult Login(LoginViewModel info)
 		{
-			ApplicationSignInManager signInManager = HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-			
-			SignInStatus result = signInManager.PasswordSignIn(info.Email, info.Password, true, false); //MVC username ile giriş yaptırıyor
+            ApplicationSignInManager signInManager = HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
 
-			switch (result)
-			{
-				case SignInStatus.Success:
-					return Json(new { success = true });
-				case SignInStatus.Failure:
-					return Json(new { success = false });
-			}
-			return Json(new { success = false });
+            UserStore<Member> store = new UserStore<Member>(_uw.db);
+
+            UserManager<Member, string> user_manager = new UserManager<Member, string>(store);
+
+
+            SignInManager<Member, string> mng = new SignInManager<Member, string>(user_manager, HttpContext.GetOwinContext().Authentication);
+
+            SignInStatus result = mng.PasswordSignIn(info.Email, info.Password, true, false); //MVC username ile giriş yaptırıyor
+            switch (result)
+            {
+                case SignInStatus.Success:
+                    return Json(new { success = true });
+                case SignInStatus.Failure:
+                    return Json(new { success = false });
+            }
+            return Json(new { success = false });
 		}
 	}
 }

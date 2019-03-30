@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: #B0E0E6 !important;
+    background-color: white !important;
 }
 
 h3.h3 {
@@ -25,7 +25,7 @@ h3.h3 {
 
 	.product-grid9 .product-image9 img {
 		width: 100%;
-		height: auto
+		height: 210px;
 	}
 
 	.product-grid9 .pic-1 {

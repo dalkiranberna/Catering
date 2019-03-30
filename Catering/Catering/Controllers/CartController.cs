@@ -14,7 +14,7 @@ using System.Web.Mvc;
 namespace Catering.Controllers
 {
 
-	https://bootsnipp.com/snippets/j6QAx
+	//https://bootsnipp.com/snippets/j6QAx
 
 	public class CartController : Controller
 	{
@@ -91,7 +91,7 @@ namespace Catering.Controllers
                 BankTransferPayment p1 = new BankTransferPayment();
                 p1.IsApproved = false;
                 p1.NameSurname = User.Identity.GetNameSurname();
-                p1.TC = User.Identity.GetTC();
+                //p1.TC = User.Identity.GetTC();
 
                 BankTransferService service = new BankTransferService();
                 bool isPaid = service.MakePayment(p1);
