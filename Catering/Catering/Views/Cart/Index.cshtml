@@ -1,8 +1,5 @@
 ﻿@using Entity
 @model ShoppingCart
-@{
-    Layout = null;
-}
 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
@@ -25,9 +22,11 @@
                                 <h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
                             </div>
                             <div class="col-xs-6">
-                                <button type="button" class="btn btn-primary btn-sm btn-block">
-                                    <span class="glyphicon glyphicon-share-alt"></span> Continue shopping
-                                </button>
+                                <a href="/Product/Index">
+                                    <button type="button" class="btn btn-primary btn-sm btn-block">
+                                        <span class="glyphicon glyphicon-share-alt"></span>  Alışverişe devam et
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>

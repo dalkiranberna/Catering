@@ -1,8 +1,5 @@
 ﻿@using Entity
 
-@{
-    Layout = null;
-}
 
 <link href="~/Content/MyAccount/Store/MultiImgUpload/css/jquery.fileupload.css" rel="stylesheet" />
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -13,9 +10,9 @@
 <h2 style="padding-left:300px;">Ürün Ekle</h2>
 <br />
 
-<form method="post" style="padding-left:300px; padding-right:500px;" id="fileupload" enctype="multipart/form-data">
+<form method="post" style="padding-left:300px; padding-right:500px;" id="fileupload" enctype="multipart/form-data" multiple>
     <div class="form-group">
-        <label>Ürün Adı</label>
+        <label>Product Name</label>
         <input name="ProductName" class="form-control" />
         <label>Fiyat</label>
         <input name="Price" class="form-control" />

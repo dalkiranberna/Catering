@@ -16,82 +16,131 @@
     <div class="container">
         <br /><br />
         <div class="row">
-            <a href="/Product/Create" class="text-right yeniUrun">Yeni Ürün Ekle</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a href="/Product/Create" class="text-right yeniUrun btn btn-success" style="font-size:15px; color:white;">Yeni Ürün Ekle</a>
+            }
         </div>
         <br /><br />
-              <div class="row">
-                  @foreach (var item in Model)
-                  {
-                      <div class="col-md-3 col-sm-6">
-                          <div class="product-grid9">
-                              <div class="product-image9">
-                                  <a href="#">
-                                      <img class="pic-1" src="@item.ImageURL" />
-                                      @*<img class="pic-2" src="~/Content/MyAccount/Store/Images/cilekreceli.jpg" />*@
-                                  </a>
-                                  <a href="#" class="fa fa-search product-full-view"></a>
-                              </div>
-                              <div class="product-content">
-                                  @*LIKE DISLIKE EKLE!!*@
-                                  <h3 class="title"><a href="#">Reçeller</a></h3>
-                                  <div class="price"> @item.Price</div>
-                                  <a class="add-to-cart" href="">İNCELE</a>
-                              </div>
-                          </div>
-                      </div>
-                  }
+        <div class="row" style="border: 1px solid lightgray;">
+            <div class="product-grid9">
+                <div class="col-md-6">
+                    <div class="product-image9">
+                        <a href="#">
+                            <img class="pic-1" src="~/Content/MyAccount/Store/Images/elmareceli.jpg" />
+                            <img class="pic-2" src="~/Content/MyAccount/Store/Images/genel3.jpg" />
+                        </a>
+                        <a href="#" class="fa fa-search product-full-view"></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="product-content">
+                        <br />
+                        <h3 class="title"><a href="#">Marmelatlar</a></h3>
+                        <br />
+                        <p style="font-size: 12px;">Köyde yetişen doğal meyvelerden yapılmış marmelat.</p>
+                        <br /><br /><br /><br /><br /><br /><br />
+                        <div class="price"> $10.20 </div>
+                        <a class="add-to-cart" href="/Cart/Index">SEPETE EKLE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row" style="border: 1px solid lightgray;">
+            <div class="product-grid9">
+                <div class="col-md-6">
+                    <div class="product-image9">
+                        <a href="#">
+                            <img class="pic-1" src="~/Content/MyAccount/Store/Images/fasulye.jpg" />
+                            <img class="pic-2" src="~/Content/MyAccount/Store/Images/domates.jpg" />
+                        </a>
+                        <a href="#" class="fa fa-search product-full-view"></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="product-content">
+                        <h3 class="title"><a href="#">Konserveler</a></h3>
+                        <br /><br /><br /><br /><br /><br /><br />
+                        <div class="price"> $12.60</div>
+                        <a class="add-to-cart" href="/Cart/Index">SEPETE EKLE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="row">
+                @foreach (var item in Model)
+                    {
+                        <div class="col-md-3 col-sm-6">
+                            <div class="product-grid9">
+                                <div class="product-image9">
+                                    <a href="#">
+                                        <img class="pic-1" src="@item.ImageURL" />
+                                        @*<img class="pic-2" src="~/Content/MyAccount/Store/Images/cilekreceli.jpg" />
+                </a>
+                <a href="#" class="fa fa-search product-full-view"></a>
+            </div>
+            <div class="product-content">
+                LIKE DISLIKE EKLE!!
+                                    <h3 class="title"><a href="#">@item.ProductName</a></h3>
+                                    <div class="price"> @item.Price</div>
+                                    <a class="add-to-cart" href="">İNCELE</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
 
 
-                  <div class="col-md-3 col-sm-6">
-                      <div class="product-grid9">
-                          <div class="product-image9">
-                              <a href="#">
-                                  <img class="pic-1" src="~/Content/MyAccount/Store/Images/elmareceli.jpg" />
-                                  <img class="pic-2" src="~/Content/MyAccount/Store/Images/genel3.jpg" />
-                              </a>
-                              <a href="#" class="fa fa-search product-full-view"></a>
-                          </div>
-                          <div class="product-content">
-                              <h3 class="title"><a href="#">Marmelatlar</a></h3>
-                              <div class="price"> $10.20 </div>
-                              <a class="add-to-cart" href="">İNCELE</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3 col-sm-6">
-                      <div class="product-grid9">
-                          <div class="product-image9">
-                              <a href="#">
-                                  <img class="pic-1" src="~/Content/MyAccount/Store/Images/fasulye.jpg" />
-                                  <img class="pic-2" src="~/Content/MyAccount/Store/Images/domates.jpg" />
-                              </a>
-                              <a href="#" class="fa fa-search product-full-view"></a>
-                          </div>
-                          <div class="product-content">
-                              <h3 class="title"><a href="#">Konserveler</a></h3>
-                              <div class="price"> $12.60 - $40.53</div>
-                              <a class="add-to-cart" href="">İNCELE</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3 col-sm-6">
-                      <div class="product-grid9">
-                          <div class="product-image9">
-                              <a href="#">
-                                  <img class="pic-1" src="~/Content/MyAccount/Store/Images/genel5.jpg" />
-                                  <img class="pic-2" src="~/Content/MyAccount/Store/Images/genel6.jpg" />
-                              </a>
-                              <a href="#" class="fa fa-search product-full-view"></a>
-                          </div>
-                          <div class="product-content">
-                              <h3 class="title"><a href="#">Soslar</a></h3>
-                              <div class="price"> $12.60 - $40.53</div>
-                              <a class="add-to-cart" href="">İNCELE</a>
-                          </div>
-                      </div>
-                  </div>
-                  <br /><br /><br /><br />
-              </div>
-        <div class="row"></div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid9">
+                        <div class="product-image9">
+                            <a href="#">
+                                <img class="pic-1" src="~/Content/MyAccount/Store/Images/elmareceli.jpg" />
+                                <img class="pic-2" src="~/Content/MyAccount/Store/Images/genel3.jpg" />
+                            </a>
+                            <a href="#" class="fa fa-search product-full-view"></a>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Marmelatlar</a></h3>
+                            <div class="price"> $10.20 </div>
+                            <a class="add-to-cart" href="">İNCELE</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid9">
+                        <div class="product-image9">
+                            <a href="#">
+                                <img class="pic-1" src="~/Content/MyAccount/Store/Images/fasulye.jpg" />
+                                <img class="pic-2" src="~/Content/MyAccount/Store/Images/domates.jpg" />
+                            </a>
+                            <a href="#" class="fa fa-search product-full-view"></a>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Konserveler</a></h3>
+                            <div class="price"> $12.60 - $40.53</div>
+                            <a class="add-to-cart" href="">İNCELE</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid9">
+                        <div class="product-image9">
+                            <a href="#">
+                                <img class="pic-1" src="~/Content/MyAccount/Store/Images/genel5.jpg" />
+                                <img class="pic-2" src="~/Content/MyAccount/Store/Images/genel6.jpg" />
+                            </a>
+                            <a href="#" class="fa fa-search product-full-view"></a>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Soslar</a></h3>
+                            <div class="price"> $12.60 - $40.53</div>
+                            <a class="add-to-cart" href="">İNCELE</a>
+                        </div>
+                    </div>
+                </div>
+                <br /><br /><br /><br />
+            </div>*@
     </div>
 </body>

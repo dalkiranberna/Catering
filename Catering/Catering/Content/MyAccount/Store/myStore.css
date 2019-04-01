@@ -16,17 +16,20 @@ h3.h3 {
 
 .product-grid9 {
 	font-family: Poppins,sans-serif;
-	z-index: 1
+	z-index: 1;
 }
 
 	.product-grid9 .product-image9 a {
 		display: block
 	}
 
-	.product-grid9 .product-image9 img {
-		width: 100%;
-		height: 210px;
-	}
+    .product-grid9 .product-image9 img {
+        width: 60% !important;
+        height: 210px;
+        margin-left: 5px;
+        margin-top: 35px;
+        margin-bottom: 35px;
+    }
 
 	.product-grid9 .pic-1 {
 		opacity: 1;

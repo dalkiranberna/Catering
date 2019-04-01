@@ -665,6 +665,7 @@
     <Content Include="Uploads\Members\79162923-9ba8-400d-bc5c-2f94988c6292.jpg" />
     <Content Include="Uploads\Members\bba9473c-55ec-43a7-bbba-5e80dc4749dd.jpg" />
     <Content Include="Uploads\Members\2cac986e-ed33-4d72-bf9a-aff457f4f462.jpg" />
+    <Content Include="Uploads\Products\cilekreceli.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -713,7 +714,6 @@
     <Folder Include="Content\Home\About\" />
     <Folder Include="Content\Home\Contact\" />
     <Folder Include="Content\MyProfile\Edit\" />
-    <Folder Include="Uploads\Products\" />
     <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
