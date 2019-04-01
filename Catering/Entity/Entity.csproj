@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IEntity.cs" />
+    <Compile Include="CateringOrder.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="Order.cs" />

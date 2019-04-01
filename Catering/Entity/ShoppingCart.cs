@@ -13,13 +13,9 @@ namespace Entity
         [ForeignKey("Member")]
         public string Id { get; set; }
         public DateTime CreateDate { get; set; }
-        public DateTime OrganizationDate { get; set; }
-        public DateTime OrganizationTime { get; set; }
-        public int NumberOfParticipants { get; set; }
         public string Address { get; set; }
         public virtual Member Member { get; set; }
         public virtual List<Product> Products { get; set; }
-        public OrganizationTheme OrganizationTheme { get; set; }
         public decimal? SubTotal
         {
             get
@@ -34,14 +30,5 @@ namespace Entity
         }
     }
 
-    public enum OrganizationTheme
-    {
-        Wedding,
-        Engagement,
-        HouseInvitation,
-        Cocktail,
-        Picnic,
-        CongressInvitation,
-        RamadanInvitation
-    }
+    
 }

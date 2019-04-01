@@ -22,6 +22,7 @@ namespace DataAccessLayer
         public virtual DbSet<Notification> Notifications { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderItem> OrderItems { get; set; }
+		public virtual DbSet<CateringOrder> CateringOrders { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -39,6 +40,8 @@ namespace DataAccessLayer
                 .HasKey(x => x.Id);
             modelBuilder.Entity<OrderItem>()
                 .HasKey(x => x.Id);
+			modelBuilder.Entity<CateringOrder>()
+				.HasKey(x => x.Id);
             #endregion
 
 
@@ -49,6 +52,7 @@ namespace DataAccessLayer
             //.HasForeignKey(x => x.MemberId);
             modelBuilder.Entity<Member>()
                 .HasMany(x => x.Products);
+
             modelBuilder.Entity<Member>()
                 .HasMany(x => x.Notifications)
                 .WithRequired(x => x.Member);
@@ -58,7 +62,7 @@ namespace DataAccessLayer
                 .WithRequired(x => x.Member);
             modelBuilder.Entity<ShoppingCart>()
                 .HasMany(x => x.Products)
-                .WithRequired(x => x.ShoppingCart);
+                .WithOptional(x => x.ShoppingCart);
             modelBuilder.Entity<Order>()
                 .HasRequired(x => x.Member)
                 .WithMany(x => x.Orders);

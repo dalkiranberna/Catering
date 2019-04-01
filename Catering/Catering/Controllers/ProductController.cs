@@ -44,17 +44,22 @@ namespace Catering.Controllers
 
         public JsonResult ImageUpload(HttpPostedFileBase ProductImage)
         {
-            if (ProductImage != null && ProductImage.ContentLength != 0)
+			string uId = User.Identity.GetUserId();
+			Member member = _uw.db.Users.Find(uId);
+
+
+			if (ProductImage != null && ProductImage.ContentLength != 0)
             {
                 var path = Server.MapPath("/Uploads/Products/");
-                ProductImage.SaveAs(path + ProductImage.FileName);
+				ProductImage.SaveAs(path + member.Id + ".jpg");
+                //ProductImage.SaveAs(path + ProductImage.FileName);
 
                 FileList fList = new FileList();
                 var files = fList.files;
 
                 File f = new File(); //burada fileviewmodel'i kullandık
                 f.name = ProductImage.FileName;
-                f.url = "/Uploads/Products/ProductImage.FileName";
+                f.url = "/Uploads/Products/"+ProductImage.FileName;
                 f.thumbnailUrl = f.url;
 
                 files.Add(f);

@@ -1,0 +1,129 @@
+﻿
+
+<head>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+<div class="container">
+	<div class="row">
+		<h2>Catering Talebi</h2>
+	</div>
+</div>
+
+<form class="form-horizontal">
+	<fieldset>
+
+		<!-- Button Drop Down -->
+		<div class="form-group">
+			@*<label class="col-md-4 control-label" for="buttondropdown">Select</label>
+				<div class="col-md-4">
+					<div class="input-group">
+						<input id="buttondropdown" name="buttondropdown" class="form-control" placeholder="Will you need a video shoot?" type="text">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								Video
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu pull-right">
+								<li><a href="#">I will need you need to shoot video.</a></li>
+								<li><a href="#">I have video files that I will supply</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>*@
+		</div>
+		<!-- Text input-->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="textinput">Organizasyon Tarihi</label>
+			<div class="col-md-4">
+				<input id="textinput" name="textinput" type="text" placeholder="31.07.2019" class="form-control input-md">
+				@*<span class="help-block">Please specify the approximate length the video needs to be</span>*@
+			</div>
+		</div>
+		<!-- Button Drop Down -->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="Graphics">Organizasyon Saati</label>
+			<div class="col-md-4">
+				<div class="input-group">
+					<input id="Graphics" name="Graphics" class="form-control" placeholder="13:00" type="text">
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="textinput">Katılımcı Sayısı</label>
+			<div class="col-md-4">
+				<input id="textinput" name="textinput" type="number" class="form-control input-md">
+				@*<span class="help-block">Please specify the approximate length the video needs to be</span>*@
+			</div>
+		</div>
+		<!-- Button Drop Down -->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="voice">Organizasyon Teması</label>
+			<div class="col-md-4">
+				<div class="input-group">
+					<input id="voice" name="voice" class="form-control" placeholder="Tema" type="text">
+					<div class="input-group-btn">
+						@*<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+							Select
+							<span class="caret"></span> -> aşağı ok yapıyor*
+						</button>*@
+						<select class="dropdown-menu pull-right" name="">
+							@foreach (var item in ViewBag.Themes)
+							{
+								<option value="">@item</option>
+							}
+							@*<li><a href="#">Yes - Please find me a professional.</a></li>
+								<li><a href="#">No</a></li>
+								<li><a href="#">Yes- I will supply</a></li>
+								<li><a href="#">Yes, but I will need help recording my voice.</a></li>*@
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Multiple Radios -->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="Music">Özel istekleriniz var mı?</label>
+			<div class="col-md-4">
+				<div class="radio">
+					<label for="Music-0">
+						<input type="radio" name="Music" id="Music-0" value="1" class="istek">
+						Evet
+					</label>
+				</div>
+				<div class="radio">
+					<label for="Music-1">
+						<input type="radio" name="Music" id="Music-1" value="2">
+						Hayır
+					</label>
+				</div>
+			</div>
+		</div>
+		<!-- Textarea -->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="Script">Adres</label>
+			<div class="col-md-4">
+				<textarea class="form-control" id="Script" name="Script"></textarea>
+			</div>
+		</div>
+		<div class="form-group ozelIstek" hidden="hidden">
+			<label class="col-md-4 control-label" for="Script">Özel İstekleriniz</label>
+			<div class="col-md-4">
+				<textarea class="form-control" id="Script" name="Script"></textarea>
+			</div>
+		</div>
+	</fieldset>
+
+	<button class="text-center btn btn-primary" style="margin-left: 500px;">Gönder</button>
+</form>
+
+@section scripts{
+	@*<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>*@
+	@*<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>*@
+
+	<script>
+		$(".istek").change(function () {
+			$(".ozelIstek").removeAttr("hidden");
+		});
+	</script>
+}

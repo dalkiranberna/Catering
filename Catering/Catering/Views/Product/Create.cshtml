@@ -2,15 +2,15 @@
 
 
 <link href="~/Content/MyAccount/Store/MultiImgUpload/css/jquery.fileupload.css" rel="stylesheet" />
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+@*<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>*@
+@*<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">*@
+@*<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>*@
 
 <br />
 <h2 style="padding-left:300px;">Ürün Ekle</h2>
 <br />
 
-<form method="post" style="padding-left:300px; padding-right:500px;" id="fileupload" enctype="multipart/form-data" multiple>
+<form method="post" style="padding-left:300px; padding-right:500px;" id="fileupload" enctype="multipart/form-data" >
     <div class="form-group">
         <label>Product Name</label>
         <input name="ProductName" class="form-control" />
@@ -38,9 +38,12 @@
     <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
 </form>
 
-<script src="~/Content/MyAccount/Store/MultiImgUpload/js/vendor/jquery.ui.widget.js"></script>
-<script src="~/Content/MyAccount/Store/MultiImgUpload/js/jquery.iframe-transport.js"></script>
-<script src="~/Content/MyAccount/Store/MultiImgUpload/js/jquery.fileupload.js"></script>
+
+@section scripts{
+
+@*<script src="~/Content/MyAccount/Store/MultiImgUpload/js/vendor/jquery.ui.widget.js"></script>*@
+@*<script src="~/Content/MyAccount/Store/MultiImgUpload/js/jquery.iframe-transport.js"></script>*@
+@*<script src="~/Content/MyAccount/Store/MultiImgUpload/js/jquery.fileupload.js"></script>*@
 
 
 
@@ -119,7 +122,7 @@
     {% } %}
 </script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+@*<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>*@
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
 <script src="/Content/MyAccount/Store/MultiImgUpload/js/vendor/jquery.ui.widget.js"></script>
 <!-- The Templates plugin is included to render the upload/download listings -->
@@ -174,3 +177,4 @@
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     });
 </script>
+}
